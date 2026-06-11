@@ -1,0 +1,346 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>藤田塾 統括会議 議事録アーカイブ</title>
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    font-family: "Hiragino Kaku Gothic ProN", "Meiryo", sans-serif;
+    font-size: 13px;
+    line-height: 1.6;
+    color: #1a1a1a;
+    background: #f4f6fb;
+  }
+  header {
+    background: #1a3a6b;
+    color: #fff;
+    padding: 20px 32px 16px;
+    display: flex;
+    align-items: flex-end;
+    gap: 20px;
+  }
+  header h1 { font-size: 18px; font-weight: bold; letter-spacing: 0.05em; }
+  header p { font-size: 11px; opacity: 0.7; margin-top: 3px; }
+  header .last-updated { font-size: 11px; opacity: 0.65; margin-left: auto; white-space: nowrap; }
+  .container { max-width: 1100px; margin: 24px auto; padding: 0 20px; }
+  .notice {
+    background: #fff8e1;
+    border-left: 4px solid #f0a000;
+    padding: 8px 14px;
+    font-size: 11.5px;
+    border-radius: 2px;
+    margin-bottom: 18px;
+    color: #555;
+  }
+  .toolbar {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 10px;
+  }
+  .toolbar .label {
+    font-size: 13px;
+    font-weight: bold;
+    color: #1a3a6b;
+  }
+  .toolbar input[type="text"] {
+    padding: 5px 10px;
+    border: 1px solid #bcd;
+    border-radius: 4px;
+    font-size: 12px;
+    width: 200px;
+    outline: none;
+  }
+  .toolbar input[type="text"]:focus { border-color: #1a3a6b; }
+  .toolbar .count { font-size: 11px; color: #888; margin-left: auto; }
+
+  /* ===== メインテーブル ===== */
+  .table-wrap {
+    background: #fff;
+    border-radius: 6px;
+    box-shadow: 0 1px 6px rgba(0,0,0,0.08);
+    overflow: hidden;
+    margin-bottom: 32px;
+  }
+  table { width: 100%; border-collapse: collapse; }
+  thead tr { background: #1a3a6b; color: #fff; }
+  thead th {
+    padding: 9px 10px;
+    font-size: 12px;
+    font-weight: bold;
+    text-align: left;
+    letter-spacing: 0.03em;
+    border-right: 1px solid rgba(255,255,255,0.15);
+    cursor: pointer;
+    user-select: none;
+    white-space: nowrap;
+  }
+  thead th:last-child { border-right: none; }
+  thead th:hover { background: #2a4e8f; }
+  thead th .sort-icon { font-size: 9px; margin-left: 4px; opacity: 0.6; }
+
+  tbody tr { border-bottom: 1px solid #e8edf5; transition: background 0.1s; }
+  tbody tr:last-child { border-bottom: none; }
+  tbody tr:hover { background: #f0f4fb; }
+  tbody tr:nth-child(even) { background: #f8fafd; }
+  tbody tr:nth-child(even):hover { background: #e8f0fe; }
+
+  td {
+    padding: 8px 10px;
+    vertical-align: top;
+    border-right: 1px solid #e8edf5;
+    font-size: 12px;
+  }
+  td:last-child { border-right: none; }
+  .td-num { color: #aaa; text-align: center; width: 36px; font-size: 11px; }
+  .td-date { white-space: nowrap; color: #1a3a6b; font-weight: bold; width: 96px; }
+  .td-kind { white-space: nowrap; width: 120px; color: #444; }
+  .td-title { min-width: 180px; }
+  .td-title a {
+    color: #1a3a6b;
+    font-weight: bold;
+    text-decoration: none;
+    border-bottom: 1px dotted #aac;
+  }
+  .td-title a:hover { color: #0a2a5b; border-bottom-color: #1a3a6b; }
+  .td-topics { color: #444; }
+  .td-members { color: #555; white-space: nowrap; width: 220px; }
+  .td-pdf { text-align: center; width: 60px; }
+  .badge-pdf {
+    display: inline-block;
+    background: #fce4ec;
+    color: #c62828;
+    border: 1px solid #f48fb1;
+    font-size: 10px;
+    padding: 1px 7px;
+    border-radius: 10px;
+    font-weight: bold;
+  }
+  .badge-yet {
+    display: inline-block;
+    background: #f5f5f5;
+    color: #aaa;
+    border: 1px solid #ddd;
+    font-size: 10px;
+    padding: 1px 7px;
+    border-radius: 10px;
+  }
+
+  /* 空行メッセージ */
+  .empty-row td { text-align: center; color: #aaa; padding: 20px; font-size: 12px; }
+
+  /* 操作説明 */
+  .how-to {
+    background: #fff;
+    border-radius: 6px;
+    box-shadow: 0 1px 4px rgba(0,0,0,0.08);
+    padding: 16px 22px;
+    margin-bottom: 32px;
+    font-size: 12px;
+    color: #444;
+  }
+  .how-to h3 { font-size: 12px; font-weight: bold; color: #1a3a6b; margin-bottom: 8px; }
+  .how-to ol { padding-left: 16px; }
+  .how-to li { margin-bottom: 4px; }
+  .how-to code {
+    background: #f0f4fb;
+    padding: 1px 5px;
+    border-radius: 3px;
+    font-size: 11px;
+    font-family: monospace;
+  }
+  footer { text-align: center; font-size: 11px; color: #aaa; padding: 20px; }
+  /* ===== スマホ対応 ===== */
+  @media screen and (max-width: 640px) {
+    header { padding: 14px 16px 10px; flex-direction: column; gap: 4px; }
+    header h1 { font-size: 15px; }
+    .container { padding: 0 10px; margin: 14px auto; }
+    .toolbar { flex-wrap: wrap; gap: 8px; }
+    .toolbar input[type="text"] { width: 100%; }
+    .table-wrap { overflow-x: auto; -webkit-overflow-scrolling: touch; }
+    table { min-width: 620px; }
+    /* スマホでは種別・参加者列を非表示 */
+    thead th:nth-child(3),
+    thead th:nth-child(6),
+    tbody td:nth-child(3),
+    tbody td:nth-child(6) { display: none; }
+    td { font-size: 11px; padding: 6px 8px; }
+    .td-date { font-size: 11px; }
+    a[href="search.html"] { width: 100%; text-align: center; display: block; }
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div>
+    <h1>藤田塾 統括会議 議事録アーカイブ</h1>
+    <p>会議のたびに1行追加して蓄積していきます</p>
+  </div>
+  <div class="last-updated">最終更新：2026年5月13日</div>
+</header>
+
+<div class="container">
+
+  <div class="notice">
+    📌 議事録タイトルをクリックするとブラウザで閲覧できます。PDF出力は各ページ右上の「📄 PDF出力」ボタン（またはCtrl+P）を使ってください。
+  </div>
+
+  <div class="toolbar">
+    <span class="label">2026年度 議事録一覧</span>
+    <input type="text" id="searchBox" placeholder="🔍 タイトル・トピック絞り込み..." oninput="filterTable()">
+    <a href="search.html" style="display:inline-block;background:#1a3a6b;color:#fff;font-size:12px;font-weight:bold;padding:5px 14px;border-radius:5px;text-decoration:none;white-space:nowrap;">🔍 全文横断検索</a>
+    <span class="count" id="rowCount"></span>
+  </div>
+
+  <div class="table-wrap">
+    <table id="minutesTable">
+      <thead>
+        <tr>
+          <th class="td-num" onclick="sortTable(0)">#<span class="sort-icon">▲▼</span></th>
+          <th onclick="sortTable(1)">実施日<span class="sort-icon">▲▼</span></th>
+          <th onclick="sortTable(2)">種別<span class="sort-icon">▲▼</span></th>
+          <th onclick="sortTable(3)">タイトル</th>
+          <th onclick="sortTable(4)">主なトピック</th>
+          <th onclick="sortTable(5)">参加者</th>
+          <th>PDF</th>
+        </tr>
+      </thead>
+      <tbody id="tableBody">
+
+        <!-- ======================================================
+             ▼ 新しい会議のたびにここに1行追加する
+             コピー用テンプレート：
+             <tr>
+               <td class="td-num">（自動）</td>
+               <td class="td-date">YYYY/MM/DD（曜）</td>
+               <td class="td-kind">第○回 統括会議（ZOOM）</td>
+               <td class="td-title"><a href="minutes/YYYYMMDD_統括会議議事録_サブタイトル.html" target="_blank">YYYY年M月D日 統括会議議事録</a><br><small>サブタイトル</small></td>
+               <td class="td-topics">トピック1・トピック2・トピック3</td>
+               <td class="td-members">藤田・武・西下・藤ノ井・高橋・高木</td>
+               <td class="td-pdf"><span class="badge-pdf">PDF可</span></td>
+             </tr>
+             ====================================================== -->
+
+        <tr>
+          <td class="td-num">1</td>
+          <td class="td-date">2026/05/13（水）</td>
+          <td class="td-kind">第1回 統括会議（ZOOM）</td>
+          <td class="td-title">
+            <a href="minutes/20260513_統括会議議事録_夏合宿準備_全体会議.html" target="_blank">2026年5月13日 統括会議議事録</a><br>
+            <small style="color:#888;">夏合宿準備_全体会議</small>
+          </td>
+          <td class="td-topics">BBQ会場調整・メディカル体制・スポンサー獲得・LINE連絡体制統一・代表視察報告（名古屋校）・評価制度改定・事務体制強化</td>
+          <td class="td-members">藤田・武・西下大介・藤ノ井智彦・高橋・高木</td>
+          <td class="td-pdf"><span class="badge-pdf">PDF可</span></td>
+        </tr>
+
+        <!-- 2回目以降はここに追加 -->
+
+        <tr>
+          <td class="td-num">2</td>
+          <td class="td-date">2026/05/26（火）</td>
+          <td class="td-kind">第2回 統括会議（ZOOM）</td>
+          <td class="td-title">
+            <a href="minutes/20260526_統括会議議事録_夏合宿BBQ確定_エリア報告.html" target="_blank">2026年5月26日 統括会議議事録</a><br>
+            <small style="color:#888;">夏合宿BBQ確定・エリア報告</small>
+          </td>
+          <td class="td-topics">BBQ会場確定（食事+2000円）・メディカル2名体制・クリニック構成・名古屋体制再編（西下統括・高田EM）・各エリア報告・6月スケジュール確定</td>
+          <td class="td-members">藤田久和・藤田里美・武・藤ノ井智彦</td>
+          <td class="td-pdf"><span class="badge-pdf">PDF可</span></td>
+        </tr>
+
+        <tr>
+          <td class="td-num">3</td>
+          <td class="td-date">2026/05/21（木）</td>
+          <td class="td-kind">第3回 統括会議（ZOOM）</td>
+          <td class="td-title">
+            <a href="minutes/20260521_統括会議議事録_名古屋校体制再編.html" target="_blank">2026年5月21日 統括会議議事録</a><br>
+            <small style="color:#888;">名古屋校体制再編・エリアマネージャー設置</small>
+          </td>
+          <td class="td-topics">役職三層化・エリアマネージャー設置・出席回復目標・広報強化・藤田イズム継承</td>
+          <td class="td-members">藤田久和・藤田里美・石原武・藤ノ井智彦</td>
+          <td class="td-pdf"><span class="badge-pdf">PDF可</span></td>
+        </tr>
+
+        <tr>
+          <td class="td-num">4</td>
+          <td class="td-date">2026/06/10（水）</td>
+          <td class="td-kind">第4回 統括会議（ZOOM）</td>
+          <td class="td-title">
+            <a href="minutes/20260610_統括会議議事録_夏合宿・エリア報告.html" target="_blank">2026年6月10日 統括会議議事録</a><br>
+            <small style="color:#888;">夏合宿申込状況・スケジュール確認 ／ エリア報告（中学部退塾対応・競合情報）</small>
+          </td>
+          <td class="td-topics">申込144名/200名定員・熟成枠35名・光泉試合・高田EMマネージャー任命・hakomono課題・大阪中学部退塾対応・京都競合PA・神戸微増・2時間高強度横展開</td>
+          <td class="td-members">藤田久和・藤田里美・石原（関東統括）・高田（EM）・藤ノ井</td>
+          <td class="td-pdf"><span class="badge-pdf">PDF可</span></td>
+        </tr>
+
+      </tbody>
+    </table>
+  </div>
+
+  <div class="how-to">
+    <h3>📄 PDFとして保存する手順</h3>
+    <ol>
+      <li>議事録タイトルをクリックしてブラウザで開く</li>
+      <li>右上の「📄 PDF出力」ボタンをクリック（または <code>Ctrl + P</code>）</li>
+      <li>プリンター選択で <strong>「PDFとして保存」</strong> を選択して保存</li>
+      <li>保存したPDFをLINEまたはメールに添付して周知</li>
+    </ol>
+  </div>
+
+</div>
+
+<footer>藤田塾 統括会議 議事録アーカイブ　｜　Claude Code で自動生成・管理</footer>
+
+<script>
+// キーワード検索
+function filterTable() {
+  const q = document.getElementById('searchBox').value.toLowerCase();
+  const rows = document.querySelectorAll('#tableBody tr');
+  let visible = 0;
+  rows.forEach(row => {
+    const text = row.textContent.toLowerCase();
+    const show = text.includes(q);
+    row.style.display = show ? '' : 'none';
+    if (show) visible++;
+  });
+  document.getElementById('rowCount').textContent = `${visible} 件表示`;
+  // 行番号を振り直す
+  let n = 1;
+  rows.forEach(row => {
+    if (row.style.display !== 'none') {
+      row.querySelector('.td-num').textContent = n++;
+    }
+  });
+}
+
+// ソート
+let sortState = {};
+function sortTable(col) {
+  const tbody = document.getElementById('tableBody');
+  const rows = Array.from(tbody.querySelectorAll('tr'));
+  const asc = !sortState[col];
+  sortState = {};
+  sortState[col] = asc;
+  rows.sort((a, b) => {
+    const ta = a.cells[col]?.textContent.trim() ?? '';
+    const tb = b.cells[col]?.textContent.trim() ?? '';
+    return asc ? ta.localeCompare(tb, 'ja') : tb.localeCompare(ta, 'ja');
+  });
+  rows.forEach(r => tbody.appendChild(r));
+  filterTable();
+}
+
+// 初期件数表示
+document.addEventListener('DOMContentLoaded', () => {
+  const rows = document.querySelectorAll('#tableBody tr');
+  document.getElementById('rowCount').textContent = `${rows.length} 件`;
+});
+</script>
+
+</body>
+</html>

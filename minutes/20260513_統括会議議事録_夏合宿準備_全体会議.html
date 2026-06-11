@@ -1,0 +1,585 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<title>20260513｜藤田塾統括会議議事録</title>
+<style>
+  @page {
+    size: A4;
+    margin: 18mm 20mm 18mm 20mm;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    font-family: "Hiragino Kaku Gothic ProN", "Meiryo", sans-serif;
+    font-size: 9.5pt;
+    line-height: 1.6;
+    color: #1a1a1a;
+  }
+  h1 {
+    font-size: 13pt;
+    font-weight: bold;
+    border-bottom: 2.5px solid #1a3a6b;
+    padding-bottom: 4px;
+    margin-bottom: 6px;
+    color: #1a3a6b;
+  }
+  .meta {
+    font-size: 8.5pt;
+    color: #555;
+    margin-bottom: 10px;
+    line-height: 1.5;
+  }
+  .summary-box {
+    background: #f0f4fb;
+    border-left: 4px solid #1a3a6b;
+    padding: 8px 12px;
+    margin-bottom: 10px;
+    font-size: 9pt;
+    border-radius: 2px;
+  }
+  .summary-box .label {
+    font-weight: bold;
+    color: #1a3a6b;
+    font-size: 8.5pt;
+    margin-bottom: 3px;
+  }
+  h2 {
+    font-size: 10.5pt;
+    font-weight: bold;
+    background: #1a3a6b;
+    color: #fff;
+    padding: 3px 8px;
+    margin: 10px 0 6px 0;
+    border-radius: 2px;
+  }
+  h3 {
+    font-size: 9.5pt;
+    font-weight: bold;
+    color: #1a3a6b;
+    border-bottom: 1px solid #bcd;
+    padding-bottom: 2px;
+    margin: 8px 0 4px 0;
+  }
+  h4 {
+    font-size: 9pt;
+    font-weight: bold;
+    color: #333;
+    margin: 6px 0 3px 0;
+  }
+  ul {
+    padding-left: 16px;
+    margin-bottom: 5px;
+  }
+  ul li {
+    margin-bottom: 2px;
+    font-size: 9pt;
+  }
+  p {
+    font-size: 9pt;
+    margin-bottom: 4px;
+  }
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 8px;
+    font-size: 8.5pt;
+  }
+  th {
+    background: #dde6f5;
+    color: #1a3a6b;
+    font-weight: bold;
+    padding: 4px 6px;
+    border: 1px solid #aac;
+    text-align: left;
+  }
+  td {
+    padding: 3px 6px;
+    border: 1px solid #ccd;
+    vertical-align: top;
+  }
+  tr:nth-child(even) td { background: #f7f9fc; }
+  .quote-box {
+    background: #fffbe6;
+    border-left: 3px solid #f0a000;
+    padding: 6px 10px;
+    margin: 6px 0;
+    font-size: 9pt;
+    font-style: italic;
+    border-radius: 2px;
+  }
+  .important {
+    background: #fff0f0;
+    border: 1px solid #f88;
+    padding: 5px 10px;
+    border-radius: 3px;
+    margin: 5px 0;
+    font-size: 8.5pt;
+  }
+  .tag {
+    display: inline-block;
+    background: #e8f0fe;
+    color: #1a3a6b;
+    font-size: 7.5pt;
+    padding: 1px 6px;
+    border-radius: 10px;
+    font-weight: bold;
+    margin-right: 3px;
+  }
+  .page-break { page-break-before: always; }
+  h1, h2, h3, h4 { page-break-after: avoid; }
+  table { page-break-inside: avoid; }
+  tr { page-break-inside: avoid; }
+  .summary-box { page-break-inside: avoid; }
+  .quote-box { page-break-inside: avoid; }
+  .important { page-break-inside: avoid; }
+  .two-col { page-break-inside: avoid; }
+  ul { page-break-inside: avoid; }
+  /* ===== スマホ対応 ===== */
+  @media screen and (max-width: 640px) {
+    body { font-size: 10pt; padding: 10px; }
+    .doc-title { font-size: 12pt; }
+    .doc-subtitle { font-size: 9pt; }
+    .two-col { grid-template-columns: 1fr; }
+    table { display: block; overflow-x: auto; -webkit-overflow-scrolling: touch; font-size: 9pt; }
+    h2 { font-size: 10pt; }
+    h3 { font-size: 10pt; }
+    .pdf-btn { top: 8px; right: 8px; padding: 7px 14px; font-size: 12px; }
+    .quote-box { font-size: 9pt; }
+    .summary-box { font-size: 9pt; }
+    .page-break { page-break-before: auto; }
+  }
+  .footer {
+    font-size: 7.5pt;
+    color: #888;
+    text-align: right;
+    margin-top: 10px;
+    border-top: 1px solid #ccc;
+    padding-top: 4px;
+  }
+  .two-col {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+  }
+  .section-num {
+    display: inline-block;
+    background: #1a3a6b;
+    color: white;
+    font-size: 8pt;
+    font-weight: bold;
+    width: 18px;
+    height: 18px;
+    line-height: 18px;
+    text-align: center;
+    border-radius: 50%;
+    margin-right: 4px;
+  }
+  /* PDF出力ボタン（印刷時は非表示） */
+  .pdf-btn {
+    position: fixed;
+    top: 16px;
+    right: 16px;
+    background: #1a3a6b;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    font-size: 13px;
+    font-family: "Hiragino Kaku Gothic ProN", "Meiryo", sans-serif;
+    font-weight: bold;
+    border-radius: 6px;
+    cursor: pointer;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.25);
+    z-index: 9999;
+    letter-spacing: 0.05em;
+  }
+  .pdf-btn:hover { background: #0f2550; }
+  @media print { .pdf-btn { display: none !important; } }
+  .doc-title {
+    font-size: 13pt;
+    font-weight: bold;
+    color: #1a3a6b;
+    border-bottom: 2.5px solid #1a3a6b;
+    padding-bottom: 3px;
+    margin-bottom: 3px;
+  }
+  .doc-subtitle {
+    font-size: 9pt;
+    color: #1a3a6b;
+    font-weight: bold;
+    margin-bottom: 8px;
+    letter-spacing: 0.02em;
+  }
+</style>
+</head>
+<body>
+
+<button class="pdf-btn" onclick="window.print()">📄 PDF出力</button>
+
+<!-- =================== PAGE 1 =================== -->
+<div class="doc-title">2026年5月13日　統括会議議事録</div>
+<div class="doc-subtitle">夏合宿準備_全体会議　▷ BBQ会場調整・メディカル体制・スポンサー獲得・LINE連絡体制統一・代表視察報告（名古屋校）・評価制度改定・事務体制強化</div>
+<div class="meta">
+  <strong>日時：</strong>2026年5月13日（水）　｜　<strong>種別：</strong>5月第1回統括会議（ZOOM）<br>
+  <strong>参加者：</strong>藤田久和（代表・監督）、石原武、西下大介、藤ノ井智彦、高橋、高木、他<br>
+  <strong>Comulytic：</strong>https://web.comulytic.ai/ja-jp/all-files/note/febc2a56-ab53-47db-8106-df5afe12dc21
+</div>
+
+<div class="summary-box">
+  <div class="label">▌ インスタント要旨</div>
+  夏合宿（8/11〜14、菅平・ゾンタック）に向けた申込日程・BBQ・メディカル体制・スポンサー獲得・申込導線の全体設計を完了。監督が名古屋校を直接視察し、「雰囲気作りの徹底」と「保護者コミュニティ育成」を全校方針として再宣言。各地区の集客施策・LINE体制統一・評価制度8段階再設計・事務体制増強も方針決定した。
+</div>
+
+<div class="two-col">
+<div>
+<h2>在籍状況（4月末時点）</h2>
+<table>
+<colgroup>
+  <col style="width:11%;">
+  <col style="width:20%;">
+  <col style="width:19%;">
+  <col style="width:20%;">
+  <col style="width:19%;">
+</colgroup>
+<tr><th>ブロック</th><th>校</th><th>人数</th><th>校</th><th>人数</th></tr>
+<tr>
+  <td rowspan="3" style="text-align:center;vertical-align:middle;background:#e8eef8;font-weight:bold;">関東<br><small>103名</small></td>
+  <td style="font-weight:bold;text-align:center;">東京</td><td style="text-align:right;white-space:nowrap;">26名</td>
+  <td style="font-weight:bold;text-align:center;">世田谷</td><td style="text-align:right;white-space:nowrap;">23名</td>
+</tr>
+<tr>
+  <td style="font-weight:bold;text-align:center;">大宮</td><td style="text-align:right;white-space:nowrap;">23名</td>
+  <td style="font-weight:bold;text-align:center;">秋田</td><td style="text-align:right;white-space:nowrap;">22名</td>
+</tr>
+<tr>
+  <td style="font-weight:bold;text-align:center;">横浜</td><td style="text-align:right;white-space:nowrap;">9名</td>
+  <td></td><td></td>
+</tr>
+<tr>
+  <td rowspan="2" style="text-align:center;vertical-align:middle;background:#e8eef8;font-weight:bold;">関西<br><small>107名</small></td>
+  <td style="font-weight:bold;text-align:center;">神戸</td><td style="text-align:right;white-space:nowrap;">44名</td>
+  <td style="font-weight:bold;text-align:center;">京都</td><td style="text-align:right;white-space:nowrap;">32名</td>
+</tr>
+<tr>
+  <td style="font-weight:bold;text-align:center;">三重</td><td style="text-align:right;white-space:nowrap;">17名</td>
+  <td style="font-weight:bold;text-align:center;">大阪</td><td style="text-align:right;white-space:nowrap;">14名</td>
+</tr>
+<tr>
+  <td rowspan="2" style="text-align:center;vertical-align:middle;background:#e8eef8;font-weight:bold;">中部<br><small>40名</small></td>
+  <td style="font-weight:bold;text-align:center;">名古屋</td><td style="text-align:right;white-space:nowrap;">31名</td>
+  <td style="font-weight:bold;text-align:center;">春日井</td><td style="text-align:right;white-space:nowrap;">9名</td>
+</tr>
+<tr style="height:22px;">
+  <td style="padding:3px 6px;"></td><td style="padding:3px 6px;"></td><td style="padding:3px 6px;"></td><td style="padding:3px 6px;"></td>
+</tr>
+<tr>
+  <td colspan="2" style="color:#555;font-size:8pt;padding-left:8px;">秋田校は増加傾向（要因分析中）</td>
+  <td colspan="3" style="text-align:center;"><strong>総計：250名</strong></td>
+</tr>
+</table>
+</div>
+<div>
+<h2>合意事項 ① 夏合宿 基本方針</h2>
+<ul>
+<li><strong>実施日：</strong>8月11日（火）〜14日（金）　菅平・ゾンタック</li>
+<li><strong>塾生申込：</strong>6月8日（月）9:00 開始</li>
+<li><strong>外部申込：</strong>6月10日（水）9:00 開始</li>
+<li>HP掲載・箱物URL経由で申込導線を整備。<strong>各校での周知案内を徹底</strong>（練習終了前・説明会の場で必ず日程・内容を伝達）　担当：武、5月中に設定完了</li>
+<li><strong>8/13午前：桂高校Bチームとの試合</strong>（高田より要望→監督承認済み）</li>
+</ul>
+</div>
+</div>
+
+<h2>合意事項 ② BBQ実施方針</h2>
+<ul>
+<li><strong>第一候補：</strong>ゾンタックで調整中。<strong>第二候補：</strong>あずまや（徒歩20分）※移動などがあるのと時間等の兼ね合いもあるため</li>
+<li>夜間（8/11〜14）は施設満席のため困難 → <strong>昼（10〜16時）または夕方枠（16〜18時）</strong>で最終調整中。監督は「夕方練習後が理想」と発言</li>
+<li><strong>費用概算：約3,500円</strong>（芝生利用+2,500円 ／ 昼食代1,000〜1,500円）</li>
+<li><strong>最終決定：塾長・武に一任。</strong>ゾンタック松浦さんと最終確認中</li>
+</ul>
+
+<h2>合意事項 ③ メディカル体制・④ スポンサー獲得</h2>
+<div class="two-col">
+<div>
+<h4>③ メディカル体制</h4>
+<ul>
+<li><strong>担当：塾長・武</strong></li>
+<li>塾の文化・活動実態を熟知している人材を優先選定（塚本さん等）</li>
+<li>外部委託も選択肢とするが、<strong>フィー（謝礼）を発生させる</strong>方針で合意</li>
+<li><strong>目的：</strong>合宿前に安全管理面で周知しておきたい。（武コーチ）</li>
+</ul>
+</div>
+<div>
+<h4>④ スポンサー獲得</h4>
+<ul>
+<li><strong>6月末ジャージ発注期限</strong>に向け早急に確保が必要（近年減少傾向）</li>
+<li>武・西下・藤ノ井が<strong>今週中に候補リストを作成し塾長へ提出</strong></li>
+<li><strong>白石</strong>をスポンサー候補としてリストアップ（西下担当）</li>
+<li>藤田も保護者等から候補情報を収集・一元管理</li>
+</ul>
+</div>
+</div>
+
+<h2>合意事項 ⑤ LINE・連絡体制の統一</h2>
+<ul>
+<li>各校ごとに<strong>保護者LINE専用グループを設定・QRコード</strong>で参加促進</li>
+<li>欠席連絡は保護者LINEに一本化。旧公式ラインは順次廃止</li>
+<li>入塾完了メールに各校保護者LINE参加用QRコードを添付 → 入塾と同時に連絡体制へ接続</li>
+</ul>
+
+<h2>合意事項 ⑥ 評価制度・事務体制・次回会議</h2>
+<ul>
+<li>評価制度を<strong>8段階へ再設計</strong>（コーチランク・報酬・アルバイト給与・総括推薦を統合）。担当：<strong>武</strong>、夏合宿前完成</li>
+<li>新規事務員1名採用（武が面接・採用対応）。<strong>週2回定例Zoom（11時頃）</strong>を設定し進捗管理を強化（武）</li>
+<li><strong>次回統括会議：5月26日（火）11:00</strong>（5月27日から変更・全員合意）</li>
+</ul>
+
+<!-- =================== PAGE 2 =================== -->
+<div class="page-break"></div>
+
+<h1>代表　各校コーチングに入っての感想・指示・全校展開方針など</h1>
+<div class="meta">会議前日（5/12）に名古屋校を直接視察。現場で感じた課題と対策を、本会議で全統括へ共有・方針化した。</div>
+
+<h2>名古屋校視察で判明した課題と代表の認識</h2>
+
+<div class="quote-box">
+「名古屋が今ちょっと減ってる原因も分かりましたし、やっぱり西下君も、じゃあそこまでやらなあかんねやっていうことで、肌で感じてくれたと思うんで。またそこら辺の話を聞かせてもらって、みんなで共有して盛り上げていきたい。」<br>　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　── 藤田代表（開会挨拶）
+</div>
+
+<div class="quote-box">
+「淡々とやって、淡々と雰囲気を作っていったら、淡々と人は増えていく。やることをやっていないだけだと思います。」<br>
+「俺の真似し嫌ってもええけど、その雰囲気作りをしようとゆう。ちいちゃんがやってくれてたのを、お前がその雰囲気作りをした中で、指導者が指導していく、指導者もその雰囲気に右習えしていく、っていうのを作ってかなアカンなと、昨日名古屋行ってつくづく感じた。」<br>
+　　　　　　　　　　　　　　　　　　　　　　　　　　　　── 藤田代表（名古屋訪問の所感）
+</div>
+
+<h3>▌ 代表が指摘した名古屋校の課題</h3>
+<ul>
+<li>コーチ主導による「場の雰囲気作り」が不十分で、入塾後の定着・口コミ紹介が滞っている</li>
+<li>指導者個人の技術・知識はあるが、塾全体の「空気感」を意図的に演出・維持する取り組みが弱い</li>
+<li>春は思ったより人数が伸びなかった。夏に向けて巻き返しの施策が急務</li>
+</ul>
+
+<h3>▌ 代表が西下さんへ伝えた塾生獲得の具体的アプローチ</h3>
+
+<table>
+<tr>
+  <th style="width:28%">施策</th>
+  <th>具体的内容</th>
+  <th style="width:20%">ポイント</th>
+</tr>
+<tr>
+  <td><strong>① 雰囲気作りの主導</strong></td>
+  <td>コーチが率先して挨拶・個別フィードバック・終礼の場づくりを行い、他の指導者が自然に右習えする環境を作る。藤田塾の差別化は「審・技・体」の中でも<strong>「心」の部分</strong>が最大の特徴であり、保護者の評価に直結する。</td>
+  <td>継続的に実施</td>
+</tr>
+<tr>
+  <td><strong>② 終礼・個別フィードバックの徹底</strong></td>
+  <td>練習後の終礼で子ども一人ひとりへの声がけ・フィードバックを習慣化。保護者が見える場での丁寧な対応が、口コミ紹介・新規勧誘につながる。</td>
+  <td>毎回の練習で実施</td>
+</tr>
+<tr>
+  <td><strong>⑥ ゲストコーチ招待で活性化</strong><br><span style="font-size:7.5pt;color:#888;">※藤ノ井より全体活性化策として提案</span></td>
+  <td>他エリアのコーチ（関西・関東）をゲストコーチとして招き、練習・体験会に新鮮な刺激を加える。塾生・保護者の「また来たい」気持ちを高め、SNSや口コミ発信を促進。</td>
+  <td>体験会・特別練習で実施</td>
+</tr>
+</table>
+
+<h2>関西エリアの成功事例（藤ノ井より共有・全校展開モデル）</h2>
+
+<div class="summary-box">
+<div class="label">▌ 神戸モデル（2年かけて形成した保護者コミュニティ）</div>
+以前は芦屋スクールメインでリーダーが育っていったが、最近の傾向としては既存の芦屋スクールの生徒が起爆剤となり、各方面のスクールの生徒が体験から入塾の運びになり、その生徒らが1年〜2年かけて各スクールの主力選手に成長、同スクールの下の学年含めて加入が増えてきていると感じる。その保護者グループが主体的に体験会・懇親会を企画する「保護者リーダー型コミュニティ」が神戸で確立。
+</div>
+
+<ul>
+<li><strong>GW実績：</strong>関西・春日井で保護者BBQを実施。三重では懇親会を開催し、耳の痛い意見も含め保護者の本音を収集。廣直のお父さんが体験会に自ら前乗りで手伝いに入るなど、保護者が自走する好循環が生まれている。</li>
+<li><strong>体験会スタイル：</strong>スクールのない土曜日を狙い、既存塾生も参加する形で体験会を開催。保護者が当日の案内・勧誘を担う</li>
+<li><strong>入塾タイミングの特性・保護者コミュニティ形成の道筋（神戸モデル）：</strong>3年生から入塾した子が5年生でレギュラー争いが始まる時期に、親が「もう少し投資しよう」とアカデミー入会を検討することが多い。4〜5年生が核になるタイミング（チームの中で存在感が出始める時期）に親の投資意欲が高まるこの時期に保護者へ積極的にアプローチし、アカデミー参加を後押しすることが、神戸で現在の保護者コミュニティが形成されるまでの道筋となった。</li>
+<li><strong>横展開の方針：</strong>この成功モデルを神戸に限らず、各地区で2〜3年スパンで意図的に仕込んでいく</li>
+<li><strong>ゲストコーチ活用（藤ノ井提案）：</strong>他エリアのコーチを体験会・特別練習に相互招待し、塾生・保護者の「また来たい」気持ちを高め、SNSや口コミ発信につなげる全体活性化策として提案</li>
+</ul>
+
+<!-- =================== PAGE 3 =================== -->
+<div class="page-break"></div>
+
+<h1>【新設】各校での実施要項（塾生獲得・合宿集客）</h1>
+
+<div class="important">
+  <strong>▌ 代表からの合宿募集 必須周知事項（各校 合宿募集人員確保のため）</strong><br>
+  ① <strong>練習終了前の告知徹底：</strong>毎回の練習終了前に必ず合宿・体験会の日程・内容を全塾生に伝達。「知らなかった」を防ぎ、家庭内での話題にしてもらう。<br>
+  ② <strong>新規説明会での合宿訴求：</strong>新規生徒・保護者向け説明会では夏合宿の魅力と重要性を必ず盛り込む。「合宿があるから入塾する」という動機付けを積極的に活用する。
+</div>
+
+<h2>全校共通 実施基準</h2>
+<table>
+<tr><th style="width:30%">項目</th><th>実施内容</th><th style="width:18%">期限・頻度</th></tr>
+<tr><td><strong>合宿告知の徹底</strong></td><td>練習終了前に必ず合宿日程・魅力・申込方法を塾生・保護者へ伝達。説明会では合宿参加を必須訴求項目として組み込む</td><td>毎回の練習</td></tr>
+<tr><td><strong>終礼・個別FBの実施</strong></td><td>練習後の終礼を必ず設け、子ども一人ひとりへの声がけ・称賛・改善点のフィードバックを習慣化する</td><td>毎回の練習</td></tr>
+<tr><td><strong>保護者LINEへの誘導</strong></td><td>入塾完了メール・体験後フォローメールにQRコードを添付し、保護者の加入漏れをなくす。</td><td>5月中に設定完了</td></tr>
+<tr><td><strong>体験会の定期開催</strong></td><td>スクール外の土曜日・平日夜を活用して体験会を企画したい。既存塾生も参加させ、活気ある雰囲気を演出する</td><td>随時</td></tr>
+<tr><td><strong>保護者リーダーの育成</strong></td><td>積極的な保護者を巻き込み、体験会の案内・当日サポートを担ってもらう。2〜3年かけて自走するコミュニティを作る</td><td>継続的に</td></tr>
+<tr><td><strong>ゲストコーチの活用</strong></td><td>他エリアのコーチを体験会・特別練習に招き、刺激・口コミ効果を創出。相互招待で各校の活性化を図る</td><td>体験会・合宿前後</td></tr>
+</table>
+
+<h2>エリア別 具体施策一覧</h2>
+<table>
+<tr>
+  <th style="width:18%">エリア／担当</th>
+  <th>直近の具体的アクション</th>
+  <th style="width:22%">中長期の取り組み</th>
+</tr>
+<tr>
+  <td><strong>中部地区</strong><br>（名古屋・春日井）<br>西下大介・武</td>
+  <td>
+    ・雰囲気作りの主導（終礼・個別FB徹底）<br>
+    ・大宮校体験会（5/16）を主導・運営<br>
+    ・スポンサー候補リスト作成（白石含む）<br>
+    ・高木さんへ中学生フォローの電話連絡<br>
+    ・合宿申込を練習終了前に必ず案内<br>
+    ・春日井の生徒は関西との合同BBQ実績あり（GW）
+  </td>
+  <td>
+    指導者が右習えする環境を構築。保護者コミュニティを育成しながら口コミ経由の入塾者を増やす。春日井も中部地区として一体的に活性化を図る
+  </td>
+</tr>
+<tr>
+  <td><strong>関西エリア</strong><br>（神戸・大阪・三重）<br>藤ノ井智彦</td>
+  <td>
+    ・神戸・大阪・三重で体験会・懇親会の日程調整<br>
+    ・三重：9月以降のイベントも計画<br>
+    ・大宮校体験会（5/16）にゲストコーチ参加<br>
+    ・エリア間コーチの相互招待を推進
+  </td>
+  <td>
+    神戸モデルの横展開。保護者リーダーが自走する体制を大阪・三重でも2〜3年スパンで仕込む
+  </td>
+</tr>
+<tr>
+  <td><strong>関東エリア</strong><br>（世田谷・江戸川・<br>横浜・大宮・東京）<br>武（石原武）</td>
+  <td>
+    ・大宮校体験会（5/16）の運営主導<br>
+    ・世田谷・江戸川合同の保護者主導型飲み会を企画<br>
+    ・横浜・新木場・東京でも体験会・懇親会を計画<br>
+    ・規模見込：体験約20名、BBQ約30名
+  </td>
+  <td>
+    保護者リーダーを育て、飲み会・懇親会を保護者主体で運営できる形へ移行。江戸川・世田谷の合同企画で相乗効果を狙う
+  </td>
+</tr>
+<tr>
+  <td><strong>秋田</strong><br>（高木さん他）</td>
+  <td>
+    ・塾長からの連絡・資料を確認して内容共有<br>
+    ・増加傾向を維持：現状の取り組みを継続
+  </td>
+  <td>
+    秋田の成功（増加）要因を分析し、他地区に水平展開する可能性を検討
+  </td>
+</tr>
+</table>
+
+<h2>合宿申込フロー（全校統一）</h2>
+<table>
+<tr><th style="width:25%">ステップ</th><th>内容</th><th style="width:20%">担当</th></tr>
+<tr><td>① HP掲載・QR配布</td><td>ホームページに夏合宿情報を掲載。各校で練習後・説明会でQRコードを配布</td><td>藤田・武（5月中）</td></tr>
+<tr><td>② 塾生申込開始</td><td>6月8日（月）9:00 ホームページ公開</td><td>藤田</td></tr>
+<tr><td>③ 外部生申込開始</td><td>6月10日（水）9:00 ホームページ公開</td><td>藤田</td></tr>
+<tr><td>④ スポンサー確定</td><td>6月末までにジャージ発注。スポンサーリストを今週中に提出</td><td>武・西下・藤ノ井</td></tr>
+</table>
+
+<h2>体験・入塾申込フロー</h2>
+<table>
+<tr><th style="width:25%">ステップ</th><th>内容</th><th style="width:20%">担当</th></tr>
+<tr><td>① 体験申込（箱物URL）</td><td>体験申込→関西：藤井 ／ 中部：西下 ／ 関東：担当者へ自動メール通知</td><td>武（5月中設定完了）</td></tr>
+<tr><td>② 入塾申込通知</td><td>里見＋各統括へメール自動通知</td><td>武（5月中）</td></tr>
+</table>
+
+<!-- =================== PAGE 4 =================== -->
+<div class="page-break"></div>
+
+<h1>未決事項 ・ TODOリスト</h1>
+
+<h2>未決事項</h2>
+<table>
+<tr><th>項目</th><th>担当</th><th>状況・課題</th></tr>
+<tr><td><strong>BBQ最終決定</strong>（時間帯・会場・費用確定）</td><td>塾長・武</td><td>ゾンタック（松浦さん）と最終確認中。代替会場も比較中</td></tr>
+<tr><td><strong>メディカル体制</strong>（担当者選定・依頼・フィー）</td><td>塾長・武</td><td>内情を知る人材を優先選定中。早急に連絡・確定が必要</td></tr>
+<tr><td><strong>スポンサー確定</strong>（6月末・ジャージ発注）</td><td>武・西下・藤ノ井・藤田</td><td>候補リスト作成中。今週中に塾長へ提出</td></tr>
+<tr><td><strong>月別目標人数表</strong>（校別・入退塾対比）</td><td>たけし</td><td>4・5月分の集計作業中</td></tr>
+<tr><td><strong>合宿後アンケート・試合イベント企画</strong></td><td>藤田</td><td>検討中</td></tr>
+</table>
+
+<h2>TODOリスト（担当者別）</h2>
+<table>
+<tr><th style="width:18%">担当</th><th>アクション</th><th style="width:14%">期限</th></tr>
+<tr>
+  <td><strong>塾長・武</strong></td>
+  <td>BBQ会場・時間帯・費用の最終決定。メディカル体制（担当者選定・フィー調整・依頼）</td>
+  <td>早急</td>
+</tr>
+<tr>
+  <td><strong>武</strong></td>
+  <td>評価制度（8段階・給与・総括推薦）の設計・完成</td>
+  <td>合宿前</td>
+</tr>
+<tr>
+  <td><strong>武</strong></td>
+  <td>保護者LINE統一運用設計・QRコード案内資料作成・各校ライン整備と運用徹底</td>
+  <td>5月中</td>
+</tr>
+<tr>
+  <td><strong>武</strong></td>
+  <td>4・5月の入退塾・体験者数を月別・校別に集計し目標対比管理表を作成</td>
+  <td>次回会議まで</td>
+</tr>
+<tr>
+  <td><strong>武</strong></td>
+  <td>新規事務員の面接・採用対応。週2回定例Zoom（11時頃）のスケジュール設定</td>
+  <td>早急</td>
+</tr>
+<tr>
+  <td><strong>武</strong></td>
+  <td>大宮校体験会（5/16）の運営主導。関東エリア集客活動を統括</td>
+  <td>5/16・継続</td>
+</tr>
+<tr>
+  <td><strong>武</strong></td>
+  <td>箱物URL経由の申込フォーム設定・連絡メール自動送信の設定完了（エリア別通知先を確認）</td>
+  <td>5月中</td>
+</tr>
+<tr>
+  <td><strong>藤田</strong></td>
+  <td>HP情報整理・公開（塾生6/8・外部6/10申込開始）。スポンサー候補を保護者等から収集・管理</td>
+  <td>早急〜6月末</td>
+</tr>
+<tr>
+  <td><strong>西下大介</strong></td>
+  <td>スポンサー候補リスト作成（白石含む）・塾長へ提出。合宿勧誘・練習終了前告知を徹底。雰囲気作りの実践（終礼・個別FB）</td>
+  <td>今週中〜継続</td>
+</tr>
+<tr>
+  <td><strong>藤ノ井智彦</strong></td>
+  <td>スポンサー候補リストを塾長へ提出。関西エリア（神戸・大阪・三重）体験会・懇親会の日程調整。保護者コミュニティ連携・エリア間連携強化。大宮校体験会（5/16）にゲストコーチ参加</td>
+  <td>今週中・5/16・継続</td>
+</tr>
+<tr>
+  <td><strong>高木さん</strong></td>
+  <td>世田谷・江戸川合同の保護者主導型飲み会の企画・推進。関東エリアの集客活動フォロー</td>
+  <td>継続</td>
+</tr>
+<tr>
+  <td><strong>全員</strong></td>
+  <td>次回統括会議：<strong>5月26日（火）11:00</strong>（ZOOMにて）</td>
+  <td>5/26</td>
+</tr>
+</table>
+
+<h2>金言ハイライト（代表・会議中の発言より）</h2>
+<div class="quote-box">「淡々とやって、淡々と雰囲気を作っていったら、淡々と人は増えていく。やることをやっていないだけ。」</div>
+<div class="quote-box">「心の部分が最大の特徴です。終礼の挨拶や個別フィードバックを通じて、保護者が実感できる差別化を再強化する。」</div>
+
+<div class="footer">
+  ZOOMミーティング要約（藤田塾_本部会議）・Comulytic AIデータ・文字起こしをもとに構造化・編集済み　｜　作成日：2026年5月13日
+</div>
+
+</body>
+</html>

@@ -1,0 +1,458 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<title>20260526｜藤田塾統括会議議事録</title>
+<style>
+  @page {
+    size: A4;
+    margin: 18mm 20mm 18mm 20mm;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    font-family: "Hiragino Kaku Gothic ProN", "Meiryo", sans-serif;
+    font-size: 9.5pt;
+    line-height: 1.6;
+    color: #1a1a1a;
+  }
+  h1 {
+    font-size: 13pt;
+    font-weight: bold;
+    border-bottom: 2.5px solid #1a3a6b;
+    padding-bottom: 4px;
+    margin-bottom: 6px;
+    color: #1a3a6b;
+  }
+  .meta {
+    font-size: 8.5pt;
+    color: #555;
+    margin-bottom: 10px;
+    line-height: 1.5;
+  }
+  .summary-box {
+    background: #f0f4fb;
+    border-left: 4px solid #1a3a6b;
+    padding: 8px 12px;
+    margin-bottom: 10px;
+    font-size: 9pt;
+    border-radius: 2px;
+  }
+  .summary-box .label {
+    font-weight: bold;
+    color: #1a3a6b;
+    font-size: 8.5pt;
+    margin-bottom: 3px;
+  }
+  h2 {
+    font-size: 10.5pt;
+    font-weight: bold;
+    background: #1a3a6b;
+    color: #fff;
+    padding: 3px 8px;
+    margin: 10px 0 6px 0;
+    border-radius: 2px;
+  }
+  h3 {
+    font-size: 9.5pt;
+    font-weight: bold;
+    color: #1a3a6b;
+    border-bottom: 1px solid #bcd;
+    padding-bottom: 2px;
+    margin: 8px 0 4px 0;
+  }
+  h4 {
+    font-size: 9pt;
+    font-weight: bold;
+    color: #333;
+    margin: 6px 0 3px 0;
+  }
+  ul {
+    padding-left: 16px;
+    margin-bottom: 5px;
+  }
+  ul li {
+    margin-bottom: 2px;
+    font-size: 9pt;
+  }
+  p {
+    font-size: 9pt;
+    margin-bottom: 4px;
+  }
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 8px;
+    font-size: 8.5pt;
+  }
+  th {
+    background: #dde6f5;
+    color: #1a3a6b;
+    font-weight: bold;
+    padding: 4px 6px;
+    border: 1px solid #aac;
+    text-align: left;
+  }
+  td {
+    padding: 3px 6px;
+    border: 1px solid #ccd;
+    vertical-align: top;
+  }
+  tr:nth-child(even) td { background: #f7f9fc; }
+  .quote-box {
+    background: #fffbe6;
+    border-left: 3px solid #f0a000;
+    padding: 6px 10px;
+    margin: 6px 0;
+    font-size: 9pt;
+    font-style: italic;
+    border-radius: 2px;
+  }
+  .important {
+    background: #fff0f0;
+    border: 1px solid #f88;
+    padding: 5px 10px;
+    border-radius: 3px;
+    margin: 5px 0;
+    font-size: 8.5pt;
+  }
+  .tag {
+    display: inline-block;
+    background: #e8f0fe;
+    color: #1a3a6b;
+    font-size: 7.5pt;
+    padding: 1px 6px;
+    border-radius: 10px;
+    font-weight: bold;
+    margin-right: 3px;
+  }
+  .page-break { page-break-before: always; }
+  h1, h2, h3, h4 { page-break-after: avoid; }
+  table { page-break-inside: avoid; }
+  tr { page-break-inside: avoid; }
+  .summary-box { page-break-inside: avoid; }
+  .quote-box { page-break-inside: avoid; }
+  .important { page-break-inside: avoid; }
+  .two-col { page-break-inside: avoid; }
+  ul { page-break-inside: avoid; }
+  @media screen and (max-width: 640px) {
+    body { font-size: 10pt; padding: 10px; }
+    .doc-title { font-size: 12pt; }
+    .doc-subtitle { font-size: 9pt; }
+    .two-col { grid-template-columns: 1fr; }
+    table { display: block; overflow-x: auto; -webkit-overflow-scrolling: touch; font-size: 9pt; }
+    h2 { font-size: 10pt; }
+    h3 { font-size: 10pt; }
+    .pdf-btn { top: 8px; right: 8px; padding: 7px 14px; font-size: 12px; }
+    .quote-box { font-size: 9pt; }
+    .summary-box { font-size: 9pt; }
+    .page-break { page-break-before: auto; }
+  }
+  .footer {
+    font-size: 7.5pt;
+    color: #888;
+    text-align: right;
+    margin-top: 10px;
+    border-top: 1px solid #ccc;
+    padding-top: 4px;
+  }
+  .two-col {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+  }
+  .section-num {
+    display: inline-block;
+    background: #1a3a6b;
+    color: white;
+    font-size: 8pt;
+    font-weight: bold;
+    width: 18px;
+    height: 18px;
+    line-height: 18px;
+    text-align: center;
+    border-radius: 50%;
+    margin-right: 4px;
+  }
+  .pdf-btn {
+    position: fixed;
+    top: 16px;
+    right: 16px;
+    background: #1a3a6b;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    font-size: 13px;
+    font-family: "Hiragino Kaku Gothic ProN", "Meiryo", sans-serif;
+    font-weight: bold;
+    border-radius: 6px;
+    cursor: pointer;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.25);
+    z-index: 9999;
+    letter-spacing: 0.05em;
+  }
+  .pdf-btn:hover { background: #0f2550; }
+  @media print { .pdf-btn { display: none !important; } }
+  .doc-title {
+    font-size: 13pt;
+    font-weight: bold;
+    color: #1a3a6b;
+    border-bottom: 2.5px solid #1a3a6b;
+    padding-bottom: 3px;
+    margin-bottom: 3px;
+  }
+  .doc-subtitle {
+    font-size: 9pt;
+    color: #1a3a6b;
+    font-weight: bold;
+    margin-bottom: 8px;
+    letter-spacing: 0.02em;
+  }
+</style>
+</head>
+<body>
+
+<button class="pdf-btn" onclick="window.print()">📄 PDF出力</button>
+
+<!-- =================== PAGE 1 =================== -->
+<div class="doc-title">2026年5月26日　統括会議議事録</div>
+<div class="doc-subtitle">夏合宿BBQ確定・エリア報告　▷ BBQ会場・メディカル体制・クリニック構成・地区状況</div>
+<div class="meta">
+  <strong>日時：</strong>2026年5月26日（火）　｜　<strong>種別：</strong>定例統括会議（ZOOM）<br>
+  <strong>参加者：</strong>藤田久和（代表）、藤田里美（専務）、石原武、藤ノ井智彦<br>
+  <strong>Comulytic：</strong>ラグビースクール運営改善と夏合宿企画の進捗共有
+</div>
+
+<div class="summary-box">
+  <div class="label">▌ インスタント要旨</div>
+  夏合宿BBQは会場内実施・食事+¥2,000で確定。メディカルは今村さん・塚本さんの2名体制で方針合意。クリニックは義和（通常）・達成（フォワード）の構成、春日が丘高校は小5・小6以上と中学部を注記。名古屋立て直しは西下（統括）・高田（エリアマネージャー）体制でスタート。6月スケジュール（春日井12日・神戸19日・全体会議6/10 AM11:00〜12:30、6/24 AM12:00〜13:30）を確定した。
+</div>
+
+<div class="two-col">
+<div>
+<h2>① 人事・組織体制</h2>
+<table>
+<tr><th>役割</th><th>担当者</th><th>担当エリア</th></tr>
+<tr><td>名古屋校ヘッドコーチ</td><td><strong>西下 大介</strong></td><td>名古屋</td></tr>
+<tr><td>エリアマネージャー</td><td><strong>高田</strong></td><td>名古屋・春日井・三重</td></tr>
+<tr><td>関西統括</td><td><strong>藤ノ井 智彦</strong></td><td>神戸・大阪・京都・三重・名古屋・春日井</td></tr>
+<tr><td>関東統括</td><td><strong>石原 武</strong></td><td>世田谷・大宮・横浜・東京・秋田</td></tr>
+</table>
+<p style="font-size:8.5pt;color:#555;margin-top:3px;">※ 名古屋は神戸・名古屋港立て直し経験をもとに本部主導で再活性化を図る</p>
+</div>
+<div>
+<h2>② 夏合宿 骨格</h2>
+<table>
+<tr><th>項目</th><th>内容</th></tr>
+<tr><td>塾生申込開始</td><td>6月4日（案内済み）</td></tr>
+<tr><td>外部生申込開始</td><td>6月10日（HP公開）</td></tr>
+<tr><td>BBQ</td><td>会場内実施・食事+¥2,000 <strong>確定</strong></td></tr>
+<tr><td>規模目安</td><td>保護者含め300名ほどを想定　2日制　募集人数で調整</td></tr>
+<tr><td>2部制区分</td><td>小1〜小5 ／ 小6・中学生</td></tr>
+<tr><td>宿泊者以外</td><td>塾生の保護者、兄弟など受け入れあり・料金明記して案内（価格など返答待ち）</td></tr>
+</table>
+</div>
+</div>
+
+<h2>主な合意事項</h2>
+<ul>
+<li>名古屋立て直し：西下を統括・高田をエリアマネージャーに配置し、三重・春日井・名古屋の面を担当させる</li>
+<li>東京から新コーチを投入し、名古屋校含めて新しい空気を導入する方向で一致</li>
+<li>BBQは会場内実施・食事+¥2,000で確定。大人・子ども料金区分を案内に明記する</li>
+<li>保護者含め300名ほどを想定し2日制で実施。募集人数で調整する</li>
+<li>雨天時の対応（タープ・屋根可否、3日目移行等）はゾンタックへ確認してから案内に記載</li>
+<li>メディカルは今村さん・塚本さんの2名体制で十分との判断。追加候補は通い可否・テーピング技能を確認</li>
+<li>義和クリニック・達成はフォワードクリニックを担当する方向で整理</li>
+<li>春日が丘高校クリニックは「小5・小6以上と中学部」と対象注記を案内に入れる</li>
+<li>未就学（1〜6歳未満）親子向けジャージ企画（上のみ・名入れ）は塾生限定で内部運用を検討</li>
+<li>保護者LINEグループへ武を追加し、メール設定完了後にHPへリンク掲出する（代表了承）</li>
+<li>6月スケジュール確定：全体オンライン会議 6/10 AM11:00〜12:30、6/24 AM12:00〜13:30</li>
+<li>対外試合は高校生と藤田中学生との試合、小6は中学生と対戦も。東福岡・神奈川桐蔭等のスケジュール取得後に調整</li>
+<li>コーチ声掛け：各学年2名、5・6年3名、中学4名を基準に関東含め広域に発信する</li>
+</ul>
+
+<!-- =================== PAGE 2 =================== -->
+<div class="page-break"></div>
+
+<div class="doc-title" style="font-size:11pt;padding-bottom:3px;margin-bottom:8px;">夏合宿 詳細企画 ／ 各エリア報告</div>
+
+<h2>夏合宿 詳細企画</h2>
+
+<h3>BBQ・参加設計</h3>
+<table>
+<tr><th style="width:26%">項目</th><th>内容</th><th style="width:22%">備考</th></tr>
+<tr><td>実施場所</td><td>会場内（菅平・ゾンタック）</td><td><strong>確定</strong></td></tr>
+<tr><td>追加料金</td><td>食事+¥2,000</td><td>大人・子ども区分あり</td></tr>
+<tr><td>雨天対応</td><td>タープ・屋根可否をゾンタックへ確認。雨天中止／3日目移行を事前案内に明記</td><td>武が確認担当</td></tr>
+<tr><td>2日分割</td><td>コーチ父兄合わせ300名超の場合も想定：小1〜小5 ／ 小6・中学生 に分割</td><td>参加人数次第</td></tr>
+<tr><td>宿泊者以外</td><td>塾生の保護者、兄弟など受け入れあり・料金明記して案内（価格など返答待ち）</td><td>6月10日めどに確認</td></tr>
+</table>
+
+<h3>クリニック・対外試合</h3>
+<table>
+<tr><th style="width:26%">項目</th><th>内容</th><th style="width:22%">備考</th></tr>
+<tr><td>義和クリニック</td><td>通常クリニック担当</td><td>確定方向</td></tr>
+<tr><td>達成クリニック</td><td>フォワード特化クリニック</td><td>確定方向（来れる来れないの返答）</td></tr>
+<tr><td>春日が丘高校クリニック</td><td>小5・小6以上と中学部　対象注記を案内に入れる</td><td>案内に明記</td></tr>
+<tr><td>未就学（1〜6歳）企画</td><td>昼間1日・親子参加・ジャージ（上のみ・名入れ）。塾生限定で内部運用を検討</td><td>詳細・運用未定</td></tr>
+<tr><td>中学生・高校生試合</td><td>高校生と藤田中学生との試合。小6は中学生と対戦も</td><td>スケジュール調整中</td></tr>
+<tr><td>対外試合</td><td>8/13AM 桂高校B　東京朝高、佐野日大、小6は中学生とも試合校があれば</td><td>武が窓口</td></tr>
+<tr><td>試合観戦</td><td>東福岡・神奈川桐蔭、大阪桐蔭、東海大仰星は教え子ネットワークで確認日程調整</td><td>武が確認</td></tr>
+</table>
+
+<h3>メディカル体制</h3>
+<ul>
+<li><strong>今村さん・塚本さんの2名体制</strong>で今年の合宿は十分との判断で合意</li>
+<li>塚本さんが声をかけている追加候補1名：通い可否・テーピング対応可否を武が確認中</li>
+<li>メディカルは開会式で紹介。宿泊は通常の合宿参加扱い　謝礼支払いを予定</li>
+</ul>
+
+<h3>コーチ配置基準</h3>
+<table>
+<tr><th>カテゴリー</th><th>コーチ数目安</th><th>備考</th></tr>
+<tr><td>各学年（小1〜小4）</td><td>2名</td><td></td></tr>
+<tr><td>小5・小6</td><td>3名以上</td><td></td></tr>
+<tr><td>中学生</td><td>4名</td><td>二面展開時は統括1名追加</td></tr>
+</table>
+<p style="font-size:8.5pt;color:#555;margin-top:2px;">関東含め広域に声掛け実施。充足状況を見て最適化予定。</p>
+
+<h2>各エリア報告</h2>
+
+<div class="two-col">
+<div>
+<h3>関東エリア（武）</h3>
+<ul>
+<li>5/16 大宮校体験会：約20名参加、バンケット（のちの懇親会）も盛況</li>
+<li>6月体験会への再参加希望者2名（実地体験会参加予定　高崎）</li>
+<li>長野保護者が高崎ラグビースクールへ移籍傾向を確認</li>
+<li>中田さん（世田谷区）が杉並ラグビースクールへ籍変更を確認</li>
+<li>5月の入退塾の動きを管理・継続確認中</li>
+</ul>
+</div>
+<div>
+<h3>関西エリア（藤ノ井）</h3>
+<ul>
+<li>名古屋校：減少傾向。高田・塾長で現場訪問済み</li>
+<li>神戸校：増加基調。中学部の継続率に課題あり</li>
+<li>京都校：「流す文化」から「止めて教える」文化へ是正中（武田・綜一郎が指導）</li>
+<li>三重校：コンタクト含む実戦練習が好評</li>
+<li>中学部が京都・神戸で流出傾向→クラブチーム化・囲い込みを強化</li>
+</ul>
+</div>
+</div>
+
+<h2>広報・コミュニケーション整備</h2>
+<ul>
+<li>保護者LINEグループへ武を追加（代表了承済み）</li>
+<li>メール設定完了後にHPへ連絡先リンクを掲載（5月中にHP担当者と打合せ予定）</li>
+<li>合宿案内は外部料金・雨天対応を明記して6/10までに配信</li>
+<li>中学生への個別声掛け強化：「お前らが盛り上げてくれ」と積極的にアプローチ</li>
+<li>口コミ→インスタグラムの導線を重視。基礎の厳しさ・独自性の可視化を継続</li>
+</ul>
+
+<h2>6月度スケジュール</h2>
+<div class="two-col">
+<div>
+<h3>統括会議スケジュール</h3>
+<table>
+<tr><th>日付</th><th>時間</th></tr>
+<tr><td>6月10日（水）</td><td>AM11:00〜12:30</td></tr>
+<tr><td>6月24日（火）</td><td>AM12:00〜13:30</td></tr>
+</table>
+</div>
+<div>
+<h3>塾長 6月訪問スケジュール</h3>
+<table>
+<tr><th>校</th><th>訪問日</th></tr>
+<tr><td>大阪</td><td>3日</td></tr>
+<tr><td>三重</td><td>9日</td></tr>
+<tr><td>春日井</td><td>12日</td></tr>
+<tr><td>京都</td><td>15日</td></tr>
+<tr><td>名古屋</td><td>16日</td></tr>
+<tr><td>神戸</td><td>19日</td></tr>
+<tr><td>横浜・大宮・東京・世田谷・秋田</td><td>今月なし</td></tr>
+</table>
+</div>
+</div>
+
+<div class="quote-box">
+「メニューを流す文化から、できていない所で止めて『なぜそうなるか』を教える文化へ。」── 藤田久和代表
+</div>
+
+<!-- =================== 最終ページ =================== -->
+<div class="page-break"></div>
+
+<div class="doc-title" style="font-size:11pt;padding-bottom:3px;margin-bottom:8px;">未決事項 ・ TODOリスト</div>
+
+<h2>未決事項</h2>
+<table>
+<tr><th style="width:32%">項目</th><th style="width:14%">担当</th><th>状況・課題</th></tr>
+<tr><td>BBQ雨天時の運用方針</td><td>武</td><td>ゾンタックへ確認中。タープ・屋根可否・食材ロス対応を含め6/10案内前に確定が必要</td></tr>
+<tr><td>外部生参加料金の最終確定</td><td>藤田代表・藤田専務・武</td><td>会場費用回答待ち。大人・子ども別料金区分で案内に明記予定</td></tr>
+<tr><td>未就学向けジャージ最小サイズ</td><td>武</td><td>目安80〜90㎝　配布予定のお菓子などは　健康安全意識の高まりを意識したチョイスで</td></tr>
+<tr><td>メディカル追加候補の可否</td><td>武</td><td>塚本経由の1名：通い可否・テーピング可否確認が必要</td></tr>
+<tr><td>対外試合校の調整</td><td>武</td><td>東スケジュール取得後に東福岡・神奈川桐蔭・大正・麻布等へ打診</td></tr>
+<tr><td>未就学（1〜6歳）親子企画の詳細</td><td>藤田代表・藤田専務・武</td><td>塾生限定で検討中。ジャージ名入れ・申込動線の整理が必要</td></tr>
+</table>
+
+<h2>TODOリスト（担当者別）</h2>
+<table>
+<tr><th style="width:18%">担当</th><th>アクション</th><th style="width:14%">期限</th></tr>
+<tr>
+  <td><strong>藤田代表</strong></td>
+  <td>保護者向け連絡用LINEグループに石原武を追加する</td>
+  <td>早急</td>
+</tr>
+<tr>
+  <td><strong>武</strong></td>
+  <td>夏合宿の案内文を作成して配信する（外部料金・雨天対応を明記）</td>
+  <td>6/10まで</td>
+</tr>
+<tr>
+  <td><strong>武</strong></td>
+  <td>BBQ会場（ゾンタック）に雨天時の実施可否・対応（中止・延期等）を確認する</td>
+  <td>6/10まで</td>
+</tr>
+<tr>
+  <td><strong>武</strong></td>
+  <td>メディカル追加候補の通い可否・テーピング対応可否を確認する</td>
+  <td>6/10まで</td>
+</tr>
+<tr>
+  <td><strong>武</strong></td>
+  <td>東（東福岡等）のスケジュールを入手し、関係者に共有する</td>
+  <td>6月中</td>
+</tr>
+<tr>
+  <td><strong>武</strong></td>
+  <td>子ども向けジャージ最小サイズ（目安80〜88等）を業者に確認する</td>
+  <td>6月末まで</td>
+</tr>
+<tr>
+  <td><strong>武</strong></td>
+  <td>6/24 12:00 打ち合わせ予定を高田にも共有する</td>
+  <td>6/10まで</td>
+</tr>
+<tr>
+  <td><strong>全員</strong></td>
+  <td>次回会議：<strong>2026年6月10日（水）AM11:00〜12:30</strong>（ZOOM）</td>
+  <td>6/10</td>
+</tr>
+<tr>
+  <td><strong>全員</strong></td>
+  <td>次々回：<strong>2026年6月24日（火）AM12:00〜13:30</strong>（ZOOM）</td>
+  <td>6/24</td>
+</tr>
+</table>
+
+<h2>金言ハイライト（代表・会議中の発言より）</h2>
+<div class="quote-box">「メニューを流す文化から、できていない所で止めて『なぜそうなるか』を教える文化へ。」── 藤田久和代表</div>
+<div class="quote-box">「成功体験の積み重ねに、時折の失敗体験が学びになる。」── 藤田久和代表</div>
+<div class="quote-box">「藤田塾なら一味違う、スクールで教わらない基礎と人間力を教える。」── 藤田久和代表</div>
+<div class="quote-box">「統括とエリアマネージャーで面を持たせる。」── 藤田久和代表</div>
+
+<div class="footer">
+  ZOOMミーティング要約（藤田塾_本部会議）・Comulytic AIデータをもとに構造化・編集済み　｜　作成日：2026年5月26日
+</div>
+
+</body>
+</html>

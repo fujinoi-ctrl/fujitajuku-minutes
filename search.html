@@ -1,0 +1,407 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>議事録検索 ｜ 藤田塾 統括会議</title>
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    font-family: "Hiragino Kaku Gothic ProN", "Meiryo", sans-serif;
+    font-size: 13px;
+    line-height: 1.7;
+    color: #1a1a1a;
+    background: #f4f6fb;
+    min-height: 100vh;
+  }
+  header {
+    background: #1a3a6b;
+    color: #fff;
+    padding: 18px 32px 14px;
+  }
+  header h1 { font-size: 17px; font-weight: bold; letter-spacing: 0.05em; }
+  header p { font-size: 11px; opacity: 0.65; margin-top: 3px; }
+  .back-link {
+    display: inline-block;
+    color: rgba(255,255,255,0.75);
+    font-size: 11px;
+    text-decoration: none;
+    margin-bottom: 8px;
+  }
+  .back-link:hover { color: #fff; }
+
+  .search-area {
+    background: #1a3a6b;
+    padding: 0 32px 20px;
+  }
+  .search-box-wrap {
+    display: flex;
+    gap: 8px;
+    align-items: center;
+    max-width: 700px;
+  }
+  .search-box-wrap input[type="text"] {
+    flex: 1;
+    padding: 10px 16px;
+    font-size: 15px;
+    border: none;
+    border-radius: 6px;
+    outline: none;
+    font-family: inherit;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+  }
+  .search-box-wrap button {
+    padding: 10px 20px;
+    background: #f0a000;
+    color: #fff;
+    border: none;
+    border-radius: 6px;
+    font-size: 14px;
+    font-weight: bold;
+    cursor: pointer;
+    font-family: inherit;
+    white-space: nowrap;
+  }
+  .search-box-wrap button:hover { background: #d08000; }
+  .search-hint { font-size: 11px; color: rgba(255,255,255,0.6); margin-top: 7px; }
+
+  .container { max-width: 900px; margin: 24px auto; padding: 0 20px; }
+
+  /* タグフィルター */
+  .filter-bar {
+    display: flex;
+    gap: 8px;
+    flex-wrap: wrap;
+    margin-bottom: 16px;
+    align-items: center;
+  }
+  .filter-label { font-size: 11px; color: #888; }
+  .filter-tag {
+    padding: 3px 12px;
+    border-radius: 12px;
+    border: 1px solid #bcd;
+    background: #fff;
+    color: #1a3a6b;
+    font-size: 11px;
+    cursor: pointer;
+    font-family: inherit;
+    transition: all 0.1s;
+  }
+  .filter-tag:hover, .filter-tag.active {
+    background: #1a3a6b;
+    color: #fff;
+    border-color: #1a3a6b;
+  }
+
+  /* 結果サマリー */
+  .result-summary {
+    font-size: 12px;
+    color: #888;
+    margin-bottom: 14px;
+    min-height: 20px;
+  }
+  .result-summary strong { color: #1a3a6b; }
+
+  /* 結果カード */
+  .result-card {
+    background: #fff;
+    border-radius: 6px;
+    box-shadow: 0 1px 5px rgba(0,0,0,0.08);
+    margin-bottom: 14px;
+    overflow: hidden;
+  }
+  .card-header {
+    background: #f0f4fb;
+    border-bottom: 1px solid #dde6f5;
+    padding: 8px 16px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    flex-wrap: wrap;
+  }
+  .card-date { font-size: 12px; font-weight: bold; color: #1a3a6b; }
+  .card-kind { font-size: 11px; color: #888; }
+  .card-title-link {
+    font-size: 13px;
+    font-weight: bold;
+    color: #1a3a6b;
+    text-decoration: none;
+    border-bottom: 1px dotted #aac;
+    margin-left: auto;
+  }
+  .card-title-link:hover { color: #0a2a5b; }
+  .card-body { padding: 10px 16px; }
+
+  /* ヒット箇所セクション */
+  .hit-section { margin-bottom: 8px; }
+  .hit-section:last-child { margin-bottom: 0; }
+  .hit-label {
+    display: inline-block;
+    font-size: 10px;
+    font-weight: bold;
+    padding: 1px 7px;
+    border-radius: 10px;
+    margin-bottom: 4px;
+  }
+  .label-decisions { background: #e8f5e9; color: #2e7d32; }
+  .label-todos     { background: #fff3e0; color: #e65100; }
+  .label-pending   { background: #fce4ec; color: #c62828; }
+  .label-body      { background: #e8f0fe; color: #1a3a6b; }
+  .label-topics    { background: #f3e5f5; color: #6a1b9a; }
+
+  .hit-items { padding-left: 0; list-style: none; }
+  .hit-items li {
+    font-size: 12px;
+    color: #333;
+    padding: 2px 0 2px 10px;
+    border-left: 2px solid #dde6f5;
+    margin-bottom: 2px;
+  }
+  mark {
+    background: #fff176;
+    color: #1a1a1a;
+    border-radius: 2px;
+    padding: 0 1px;
+    font-weight: bold;
+  }
+
+  /* 初期状態 */
+  .empty-state {
+    text-align: center;
+    padding: 60px 20px;
+    color: #aaa;
+  }
+  .empty-state .icon { font-size: 40px; margin-bottom: 12px; }
+  .empty-state p { font-size: 13px; }
+
+  /* ノーヒット */
+  .no-result {
+    text-align: center;
+    padding: 40px 20px;
+    color: #aaa;
+    background: #fff;
+    border-radius: 6px;
+    box-shadow: 0 1px 4px rgba(0,0,0,0.07);
+  }
+  /* ===== スマホ対応 ===== */
+  @media screen and (max-width: 640px) {
+    .search-area { padding: 0 14px 16px; }
+    .search-box-wrap { flex-direction: column; }
+    .search-box-wrap input[type="text"] { font-size: 14px; padding: 9px 12px; }
+    .search-box-wrap button { width: 100%; padding: 10px; }
+    .container { padding: 0 10px; margin: 14px auto; }
+    .filter-bar { gap: 6px; }
+    .card-header { flex-direction: column; align-items: flex-start; gap: 4px; }
+    .card-title-link { margin-left: 0; font-size: 12px; }
+    .card-body { padding: 8px 12px; }
+    .hit-items li { font-size: 11px; }
+  }
+</style>
+</head>
+<body>
+
+<div class="search-area">
+  <a class="back-link" href="index.html">← 議事録一覧に戻る</a>
+  <h1>🔍 議事録 横断検索</h1>
+  <p style="font-size:11px;opacity:0.65;margin-top:3px;margin-bottom:12px;">決定事項・TODO・会議内容をキーワードで全件検索できます</p>
+  <div class="search-box-wrap">
+    <input type="text" id="searchInput" placeholder="例：BBQ、スポンサー、保護者LINE、武、菅平…" autocomplete="off">
+    <button onclick="doSearch()">検索</button>
+  </div>
+  <div class="search-hint">Enterキーでも検索できます　｜　複数キーワードはスペースで区切ると AND 検索</div>
+</div>
+
+<div class="container">
+
+  <div class="filter-bar">
+    <span class="filter-label">絞り込み：</span>
+    <button class="filter-tag active" onclick="setFilter('all', this)">すべて</button>
+    <button class="filter-tag" onclick="setFilter('decisions', this)">決定事項</button>
+    <button class="filter-tag" onclick="setFilter('todos', this)">TODO</button>
+    <button class="filter-tag" onclick="setFilter('pending', this)">未決事項</button>
+    <button class="filter-tag" onclick="setFilter('body', this)">会議内容</button>
+  </div>
+
+  <div class="result-summary" id="resultSummary"></div>
+  <div id="results">
+    <div class="empty-state">
+      <div class="icon">📋</div>
+      <p>キーワードを入力して検索してください</p>
+      <p style="font-size:11px;margin-top:6px;">決定事項・TODO・未決事項・会議内容を一括で検索します</p>
+    </div>
+  </div>
+
+</div>
+
+<script>
+let INDEX = [];
+let currentFilter = 'all';
+
+// インデックス読み込み
+fetch('search-index.json')
+  .then(r => r.json())
+  .then(data => { INDEX = data; })
+  .catch(() => {
+    document.getElementById('results').innerHTML =
+      '<div class="no-result">⚠️ search-index.json が読み込めません。ファイルを確認してください。</div>';
+  });
+
+// Enterキー対応
+document.getElementById('searchInput').addEventListener('keydown', e => {
+  if (e.key === 'Enter') doSearch();
+});
+
+function setFilter(f, el) {
+  currentFilter = f;
+  document.querySelectorAll('.filter-tag').forEach(b => b.classList.remove('active'));
+  el.classList.add('active');
+  const q = document.getElementById('searchInput').value.trim();
+  if (q) doSearch();
+}
+
+function doSearch() {
+  const raw = document.getElementById('searchInput').value.trim();
+  if (!raw) return;
+
+  // AND検索：スペース区切りで複数キーワード
+  const keywords = raw.split(/\s+/).filter(k => k.length > 0);
+
+  const container = document.getElementById('results');
+  const summary = document.getElementById('resultSummary');
+  container.innerHTML = '';
+
+  let totalHits = 0;
+
+  INDEX.forEach(entry => {
+    const sections = {
+      decisions: { label: '決定事項', cls: 'label-decisions', items: entry.decisions || [] },
+      todos:     { label: 'TODO',    cls: 'label-todos',     items: entry.todos    || [] },
+      pending:   { label: '未決事項', cls: 'label-pending',   items: entry.pending  || [] },
+      body:      { label: '会議内容', cls: 'label-body',      items: [entry.body || ''] },
+      topics:    { label: 'トピック', cls: 'label-topics',    items: [entry.topics || ''] },
+    };
+
+    // フィルター適用
+    const targetSections = currentFilter === 'all'
+      ? Object.keys(sections)
+      : [currentFilter];
+
+    // キーワードが全部ヒットするか確認（全文で AND チェック）
+    const fullText = Object.values(sections).flatMap(s => s.items).join(' ')
+      + entry.members + entry.date + entry.kind;
+    const allMatch = keywords.every(kw => fullText.includes(kw));
+    if (!allMatch) return;
+
+    // セクション別にヒット行を抽出
+    const hitSections = [];
+    targetSections.forEach(key => {
+      const sec = sections[key];
+      if (!sec) return;
+      const hitItems = sec.items.filter(item =>
+        keywords.every(kw => item.includes(kw))
+      );
+      if (hitItems.length > 0) {
+        hitSections.push({ ...sec, hitItems });
+      }
+    });
+
+    // body は長いので分割して該当文のみ抽出
+    if (targetSections.includes('body') && entry.body) {
+      const bodySec = hitSections.find(s => s.label === '会議内容');
+      if (bodySec) {
+        // 句点・読点で分割して該当センテンスだけ
+        const sentences = entry.body.split(/[。、\n]/).filter(s => s.trim());
+        const hitSents = sentences.filter(s =>
+          keywords.every(kw => s.includes(kw))
+        );
+        bodySec.hitItems = hitSents.length > 0 ? hitSents : bodySec.hitItems;
+      }
+    }
+
+    if (hitSections.length === 0 && currentFilter !== 'all') return;
+
+    totalHits++;
+
+    // カード生成
+    const card = document.createElement('div');
+    card.className = 'result-card';
+
+    const header = document.createElement('div');
+    header.className = 'card-header';
+    header.innerHTML = `
+      <span class="card-date">${entry.date}（${entry.weekday}）</span>
+      <span class="card-kind">${entry.kind}</span>
+      <a class="card-title-link" href="${entry.file}" target="_blank">${entry.title} →</a>
+    `;
+
+    const body = document.createElement('div');
+    body.className = 'card-body';
+
+    if (hitSections.length === 0) {
+      // フィルターが「すべて」で全文ヒットした場合、ヒット箇所を探す
+      const allSections = Object.keys(sections);
+      allSections.forEach(key => {
+        const sec = sections[key];
+        const hitItems = sec.items.filter(item =>
+          keywords.every(kw => item.includes(kw))
+        );
+        if (hitItems.length > 0) {
+          hitSections.push({ ...sec, hitItems });
+        }
+      });
+    }
+
+    hitSections.forEach(sec => {
+      const div = document.createElement('div');
+      div.className = 'hit-section';
+      const label = document.createElement('span');
+      label.className = `hit-label ${sec.cls}`;
+      label.textContent = sec.label;
+      const ul = document.createElement('ul');
+      ul.className = 'hit-items';
+      sec.hitItems.slice(0, 5).forEach(item => {
+        const li = document.createElement('li');
+        li.innerHTML = highlight(item, keywords);
+        ul.appendChild(li);
+      });
+      if (sec.hitItems.length > 5) {
+        const li = document.createElement('li');
+        li.style.color = '#aaa';
+        li.textContent = `…他 ${sec.hitItems.length - 5} 件`;
+        ul.appendChild(li);
+      }
+      div.appendChild(label);
+      div.appendChild(ul);
+      body.appendChild(div);
+    });
+
+    card.appendChild(header);
+    card.appendChild(body);
+    container.appendChild(card);
+  });
+
+  if (totalHits === 0) {
+    container.innerHTML = `<div class="no-result">「${raw}」に一致する議事録は見つかりませんでした。</div>`;
+    summary.innerHTML = '';
+  } else {
+    summary.innerHTML = `「<strong>${raw}</strong>」の検索結果：<strong>${totalHits}</strong> 件の議事録がヒットしました`;
+  }
+}
+
+// キーワードをハイライト
+function highlight(text, keywords) {
+  let result = escapeHtml(text);
+  keywords.forEach(kw => {
+    const escaped = kw.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+    result = result.replace(new RegExp(escaped, 'g'), `<mark>${kw}</mark>`);
+  });
+  return result;
+}
+
+function escapeHtml(str) {
+  return str.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');
+}
+</script>
+
+</body>
+</html>

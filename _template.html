@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<title>YYYYMMDD｜藤田塾統括会議議事録</title>
+<style>
+  @page {
+    size: A4;
+    margin: 18mm 20mm 18mm 20mm;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    font-family: "Hiragino Kaku Gothic ProN", "Meiryo", sans-serif;
+    font-size: 9.5pt;
+    line-height: 1.6;
+    color: #1a1a1a;
+  }
+  h1 {
+    font-size: 13pt;
+    font-weight: bold;
+    border-bottom: 2.5px solid #1a3a6b;
+    padding-bottom: 4px;
+    margin-bottom: 6px;
+    color: #1a3a6b;
+  }
+  .meta {
+    font-size: 8.5pt;
+    color: #555;
+    margin-bottom: 10px;
+    line-height: 1.5;
+  }
+  .summary-box {
+    background: #f0f4fb;
+    border-left: 4px solid #1a3a6b;
+    padding: 8px 12px;
+    margin-bottom: 10px;
+    font-size: 9pt;
+    border-radius: 2px;
+  }
+  .summary-box .label {
+    font-weight: bold;
+    color: #1a3a6b;
+    font-size: 8.5pt;
+    margin-bottom: 3px;
+  }
+  h2 {
+    font-size: 10.5pt;
+    font-weight: bold;
+    background: #1a3a6b;
+    color: #fff;
+    padding: 3px 8px;
+    margin: 10px 0 6px 0;
+    border-radius: 2px;
+  }
+  h3 {
+    font-size: 9.5pt;
+    font-weight: bold;
+    color: #1a3a6b;
+    border-bottom: 1px solid #bcd;
+    padding-bottom: 2px;
+    margin: 8px 0 4px 0;
+  }
+  h4 {
+    font-size: 9pt;
+    font-weight: bold;
+    color: #333;
+    margin: 6px 0 3px 0;
+  }
+  ul {
+    padding-left: 16px;
+    margin-bottom: 5px;
+  }
+  ul li {
+    margin-bottom: 2px;
+    font-size: 9pt;
+  }
+  p {
+    font-size: 9pt;
+    margin-bottom: 4px;
+  }
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 8px;
+    font-size: 8.5pt;
+  }
+  th {
+    background: #dde6f5;
+    color: #1a3a6b;
+    font-weight: bold;
+    padding: 4px 6px;
+    border: 1px solid #aac;
+    text-align: left;
+  }
+  td {
+    padding: 3px 6px;
+    border: 1px solid #ccd;
+    vertical-align: top;
+  }
+  tr:nth-child(even) td { background: #f7f9fc; }
+  .quote-box {
+    background: #fffbe6;
+    border-left: 3px solid #f0a000;
+    padding: 6px 10px;
+    margin: 6px 0;
+    font-size: 9pt;
+    font-style: italic;
+    border-radius: 2px;
+  }
+  .important {
+    background: #fff0f0;
+    border: 1px solid #f88;
+    padding: 5px 10px;
+    border-radius: 3px;
+    margin: 5px 0;
+    font-size: 8.5pt;
+  }
+  .tag {
+    display: inline-block;
+    background: #e8f0fe;
+    color: #1a3a6b;
+    font-size: 7.5pt;
+    padding: 1px 6px;
+    border-radius: 10px;
+    font-weight: bold;
+    margin-right: 3px;
+  }
+  .page-break { page-break-before: always; }
+  h1, h2, h3, h4 { page-break-after: avoid; }
+  table { page-break-inside: avoid; }
+  tr { page-break-inside: avoid; }
+  .summary-box { page-break-inside: avoid; }
+  .quote-box { page-break-inside: avoid; }
+  .important { page-break-inside: avoid; }
+  .two-col { page-break-inside: avoid; }
+  ul { page-break-inside: avoid; }
+  /* ===== スマホ対応 ===== */
+  @media screen and (max-width: 640px) {
+    body { font-size: 10pt; padding: 10px; }
+    .doc-title { font-size: 12pt; }
+    .doc-subtitle { font-size: 9pt; }
+    .two-col { grid-template-columns: 1fr; }
+    table { display: block; overflow-x: auto; -webkit-overflow-scrolling: touch; font-size: 9pt; }
+    h2 { font-size: 10pt; }
+    h3 { font-size: 10pt; }
+    .pdf-btn { top: 8px; right: 8px; padding: 7px 14px; font-size: 12px; }
+    .quote-box { font-size: 9pt; }
+    .summary-box { font-size: 9pt; }
+    .page-break { page-break-before: auto; }
+  }
+  .footer {
+    font-size: 7.5pt;
+    color: #888;
+    text-align: right;
+    margin-top: 10px;
+    border-top: 1px solid #ccc;
+    padding-top: 4px;
+  }
+  .two-col {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+  }
+  .section-num {
+    display: inline-block;
+    background: #1a3a6b;
+    color: white;
+    font-size: 8pt;
+    font-weight: bold;
+    width: 18px;
+    height: 18px;
+    line-height: 18px;
+    text-align: center;
+    border-radius: 50%;
+    margin-right: 4px;
+  }
+  .pdf-btn {
+    position: fixed;
+    top: 16px;
+    right: 16px;
+    background: #1a3a6b;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    font-size: 13px;
+    font-family: "Hiragino Kaku Gothic ProN", "Meiryo", sans-serif;
+    font-weight: bold;
+    border-radius: 6px;
+    cursor: pointer;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.25);
+    z-index: 9999;
+    letter-spacing: 0.05em;
+  }
+  .pdf-btn:hover { background: #0f2550; }
+  @media print { .pdf-btn { display: none !important; } }
+  .doc-title {
+    font-size: 13pt;
+    font-weight: bold;
+    color: #1a3a6b;
+    border-bottom: 2.5px solid #1a3a6b;
+    padding-bottom: 3px;
+    margin-bottom: 3px;
+  }
+  .doc-subtitle {
+    font-size: 9pt;
+    color: #1a3a6b;
+    font-weight: bold;
+    margin-bottom: 8px;
+    letter-spacing: 0.02em;
+  }
+</style>
+</head>
+<body>
+
+<button class="pdf-btn" onclick="window.print()">📄 PDF出力</button>
+
+<!-- =================== PAGE 1 =================== -->
+<div class="doc-title">YYYY年M月D日　統括会議議事録</div>
+<div class="doc-subtitle">【サブタイトル例：夏合宿準備_全体会議】　▷ トピック1・トピック2・トピック3</div>
+<div class="meta">
+  <strong>日時：</strong>YYYY年M月D日（曜）　｜　<strong>種別：</strong>【会議種別・方法（ZOOM等）】<br>
+  <strong>参加者：</strong>【参加者氏名】<br>
+  <strong>Comulytic：</strong>【URLを貼る】
+</div>
+
+<div class="summary-box">
+  <div class="label">▌ インスタント要旨</div>
+  【2〜3行で会議全体の要約を記載】
+</div>
+
+<!-- 2カラムレイアウト例 -->
+<div class="two-col">
+<div>
+<h2>【左セクションタイトル】</h2>
+<table>
+<tr><th>列1</th><th>列2</th></tr>
+<tr><td>内容</td><td>内容</td></tr>
+</table>
+</div>
+<div>
+<h2>【右セクションタイトル】</h2>
+<ul>
+<li>箇条書き項目</li>
+</ul>
+</div>
+</div>
+
+<h2>合意事項</h2>
+<ul>
+<li>内容</li>
+</ul>
+
+<!-- 代表からの必須周知事項がある場合 -->
+<!--
+<div class="important">
+  <strong>▌ 代表からの必須周知事項</strong><br>
+  内容
+</div>
+-->
+
+<!-- =================== PAGE 2 =================== -->
+<div class="page-break"></div>
+
+<h1>【ページ2タイトル】</h1>
+<div class="meta">補足説明</div>
+
+<!-- 発言の引用 -->
+<!--
+<div class="quote-box">「発言内容」── 氏名</div>
+-->
+
+<h2>セクションタイトル</h2>
+<table>
+<tr>
+  <th style="width:28%">項目</th>
+  <th>内容</th>
+  <th style="width:20%">備考</th>
+</tr>
+<tr>
+  <td>内容</td>
+  <td>内容</td>
+  <td>内容</td>
+</tr>
+</table>
+
+<!-- =================== 最終ページ =================== -->
+<div class="page-break"></div>
+
+<h1>未決事項 ・ TODOリスト</h1>
+
+<h2>未決事項</h2>
+<table>
+<tr><th>項目</th><th>担当</th><th>状況・課題</th></tr>
+<tr><td>内容</td><td>担当者</td><td>状況</td></tr>
+</table>
+
+<h2>TODOリスト（担当者別）</h2>
+<table>
+<tr><th style="width:18%">担当</th><th>アクション</th><th style="width:14%">期限</th></tr>
+<tr>
+  <td><strong>氏名</strong></td>
+  <td>アクション内容</td>
+  <td>期限</td>
+</tr>
+<tr>
+  <td><strong>全員</strong></td>
+  <td>次回会議：<strong>YYYY年M月D日（曜）HH:00</strong>（ZOOMにて）</td>
+  <td>M/D</td>
+</tr>
+</table>
+
+<h2>金言ハイライト（代表・会議中の発言より）</h2>
+<div class="quote-box">「発言内容」</div>
+
+<div class="footer">
+  ZOOMミーティング要約（藤田塾_本部会議）・Comulytic AIデータ・文字起こしをもとに構造化・編集済み　｜　作成日：YYYY年M月D日
+</div>
+
+</body>
+</html>
